@@ -1,12 +1,19 @@
 import {Button,Card,Row,Col} from 'react-bootstrap';
 
 
+
+
+
 const Sql = () => {
+
+  const data = {}
+
+
   return (
 
     <Row>
-        <Col md={3} className="border border-primary" style={{border:'1px solid red'}}>
-    <Card style={{ width: '18rem' }}>
+        <Col md={3} >
+    <Card  className="border border-primary">
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
