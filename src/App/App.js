@@ -1,8 +1,11 @@
-export default  () => {
+import Sql from "../Cmp/Sql"
+
+ const App =  () => {
   return (
     <div className="App">
-     dfg drgdfg
+      <Sql/>
     </div>
   );
 }
  
+export default App
