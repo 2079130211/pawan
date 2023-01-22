@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sql</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+<div class="row" id="sql">
+
+
+
+  </div>
+</div>
+
+
+</body>
+
+<script>
+
+
+const data = [
+    {"title":"Sequlize","content":`npm install --save-dev sequelize-cli
+npm install --save sequelize
+npx sequelize-cli init
+npm install mysql2
+npx sequelize-cli model:generate --name Users --attributes name:string,email:string
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo (last migration change)
+npx sequelize-cli db:migrate:undo:all (for remove migration)
+npx sequelize-cli db:migrate:undo --name migration-filename (specific table)
+npx sequelize-cli db:migrate:status (check table status)
+
+npx sequelize-cli seed:generate --name user-add
+npx sequelize-cli db:seed:all (run seeder)
+npx sequelize-cli db:seed --seed seeder-filename (specific seeder file)
+npx sequelize-cli db:seed:undo:all (remove all seeder);`}
+ 
+];
+
+$(document).ready(()=>{
+
+    let element;
+    
+    data.forEach((el)=>{
+    element = '';
+        element = `
+        <div class="col-md-3 mb-3">
+ <div class="card border border-primary shadow">
+   <div class="card-body">
+     <h4 class="card-title text-capitalize">${el.title}</h4>
+     <p class="card-text ">${el.content}</p>
+   </div>
+ </div>
+ </div>
+ `; 
+
+$("#sql").append(element)
+
+});
+
+});
+
+
+</script>
+
+
+
+</html>
