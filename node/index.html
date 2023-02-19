@@ -10,66 +10,64 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
- 
-<div class="container">
-<div class="row" id="sql">
-
-
-
+  <div class="container">
+    <div class="row" id="sql">
+    </div>
   </div>
-</div>
-
-
 </body>
-
 <script>
+  const data = [{
+      "title": "Sequlize",
+      "content": [
+        'npm install --save-dev sequelize-cli',
+        'npm install --save sequelize',
+        'npx sequelize-cli init',
+        'npm install mysql2',
+        'npx sequelize-cli model:generate --name Users --attributes name:string,email:string',
+        'npx sequelize-cli db:migrate',
+        'npx sequelize-cli db:migrate:undo (last migration change)',
+        'npx sequelize-cli db:migrate:undo:all (for remove migration)',
+        'npx sequelize-cli db:migrate:undo --name migration-filename (specific table)',
+        'npx sequelize-cli db:migrate:status (check table status)',
+        'npx sequelize-cli seed:generate --name user-add',
+        'npx sequelize-cli db:seed:all (run seeder)',
+        'npx sequelize-cli db:seed --seed seeder-filename (specific seeder file)',
+        'npx sequelize-cli db:seed:undo:all (remove all seeder)'
 
+      ]
+    }
 
-const data = [
-    {"title":"Sequlize","content":`npm install --save-dev sequelize-cli
-npm install --save sequelize
-npx sequelize-cli init
-npm install mysql2
-npx sequelize-cli model:generate --name Users --attributes name:string,email:string
-npx sequelize-cli db:migrate
-npx sequelize-cli db:migrate:undo (last migration change)
-npx sequelize-cli db:migrate:undo:all (for remove migration)
-npx sequelize-cli db:migrate:undo --name migration-filename (specific table)
-npx sequelize-cli db:migrate:status (check table status)
-
-npx sequelize-cli seed:generate --name user-add
-npx sequelize-cli db:seed:all (run seeder)
-npx sequelize-cli db:seed --seed seeder-filename (specific seeder file)
-npx sequelize-cli db:seed:undo:all (remove all seeder);`}
- 
-];
-
-$(document).ready(()=>{
-
+  ];
+  $(document).ready(() => {
     let element;
-    
-    data.forEach((el)=>{
-    element = '';
-        element = `
-        <div class="col-md-3 mb-3">
+    data.forEach((el) => {
+      element = `<div class="col-md-4 mb-3">
  <div class="card border border-primary shadow">
    <div class="card-body">
      <h4 class="card-title text-capitalize">${el.title}</h4>
-     <p class="card-text ">${el.content}</p>
+     ${el.content.map(el2 =>{
+       return `<p class="card-text font-weight-bold">${el2}</p>`
+      })
+
+    } 
+
+
+    
+
+
+      
    </div>
  </div>
  </div>
- `; 
-
-$("#sql").append(element)
-
-});
-
-});
+ `;
 
 
+ 
+
+      $("#sql").append(element)
+      element = '';
+    });
+
+  });
 </script>
-
-
-
 </html>
